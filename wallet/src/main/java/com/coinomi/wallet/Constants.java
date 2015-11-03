@@ -2,6 +2,7 @@ package com.coinomi.wallet;
 
 import android.text.format.DateUtils;
 
+import com.coinomi.core.coins.AIBMain;
 import com.coinomi.core.coins.BitcoinMain;
 import com.coinomi.core.coins.BitcoinTest;
 import com.coinomi.core.coins.BlackcoinMain;
@@ -109,6 +110,18 @@ public class Constants {
 
     // TODO move to resource files
     public static final List<CoinAddress> DEFAULT_COINS_SERVERS = ImmutableList.of(
+        
+      new CoinAddress(AIBMain.get(),
+                                                     new ServerAddress("aib-cce-1.iobond.com", 5037),
+                                                     new ServerAddress("aib-cce-2.iobond.com", 5037),
+                                                     new ServerAddress("server1.payoto.com", 5037),
+                                                     new ServerAddress("server2.payoto.com", 5037),
+                                                     new ServerAddress("server3.payoto.com", 5037),
+                                                     new ServerAddress("server4.payoto.com", 5037),
+                                                     new ServerAddress("aib-cce-1.coinomi.net", 5037)
+                            ),    
+        
+        
             new CoinAddress(BitcoinMain.get(),      new ServerAddress("btc-cce-1.coinomi.net", 5001),
                                                     new ServerAddress("btc-cce-2.coinomi.net", 5001)),
             new CoinAddress(BitcoinTest.get(),      new ServerAddress("btc-testnet-cce-1.coinomi.net", 15001),
@@ -178,6 +191,7 @@ public class Constants {
     public static final HashMap<CoinType, String> COINS_BLOCK_EXPLORERS;
     static {
         COINS_ICONS = new HashMap<>();
+        COINS_ICONS.put(CoinID.AIB_MAIN.getCoinType(), R.drawable.aibond);
         COINS_ICONS.put(CoinID.BITCOIN_MAIN.getCoinType(), R.drawable.bitcoin);
         COINS_ICONS.put(CoinID.BITCOIN_TEST.getCoinType(), R.drawable.bitcoin_test);
         COINS_ICONS.put(CoinID.DOGECOIN_MAIN.getCoinType(), R.drawable.dogecoin);
@@ -211,6 +225,7 @@ public class Constants {
         COINS_ICONS.put(CoinID.GCR_MAIN.getCoinType(), R.drawable.gcr);
 
         COINS_BLOCK_EXPLORERS = new HashMap<CoinType, String>();
+        COINS_BLOCK_EXPLORERS.put(CoinID.AIB_MAIN.getCoinType(), "https://aib-block.iobond.com/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOIN_MAIN.getCoinType(), "https://blockchain.info/tx/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.BITCOIN_TEST.getCoinType(), "https://chain.so/tx/BTCTEST/%s");
         COINS_BLOCK_EXPLORERS.put(CoinID.DOGECOIN_MAIN.getCoinType(), "https://chain.so/tx/DOGE/%s");
@@ -254,6 +269,7 @@ public class Constants {
     );
 
     public static final List<CoinType> SUPPORTED_COINS = ImmutableList.of(
+            AIBMain.get(),
             BitcoinMain.get(),
             DogecoinMain.get(),
             LitecoinMain.get(),
