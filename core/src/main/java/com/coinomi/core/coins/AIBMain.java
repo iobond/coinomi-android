@@ -22,8 +22,8 @@ public class AIBMain extends CoinType {
         bip44Index = 2;   //// TODO: 2015/10/18  apply bip44
         unitExponent = 8;
         feePerKb = value(100000);
-        minNonDust = value(1000); // 0.00001 LTC mininput
-        softDustLimit = value(100000); // 0.001 LTC
+        minNonDust = value(1000); // 0.00001 AIB mininput
+        softDustLimit = value(100000); // 0.001 AIB
         softDustPolicy = SoftDustPolicy.BASE_FEE_FOR_EACH_SOFT_DUST_TXO;
         signedMessageHeader = toBytes("Asian Investment Bond Signed Message:\n");
     }
